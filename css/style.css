@@ -51,6 +51,10 @@ body :-ms-input-placeholder {
   -webkit-transform: translateY(85px);
           transform: translateY(85px);
 }
+.wrapper.form-success .container #authenticationLbl {
+  -webkit-transform: translateY(85px);
+          transform: translateY(85px);
+}
 .container {
   max-width: 600px;
   margin: 0 auto;
@@ -59,12 +63,9 @@ body :-ms-input-placeholder {
   text-align: center;
   margin-top: 200px;
 }
-.container h1 {
-  font-size: 40px;
-  -webkit-transition-duration: 1s;
-          transition-duration: 1s;
-  -webkit-transition-timing-function: ease-in-put;
-          transition-timing-function: ease-in-put;
+.container #authenticationLbl {
+  display: none;
+  font-size: 18px;
   font-weight: 200;
 }
 .container img {
@@ -127,7 +128,7 @@ form button:hover {
   background-color: #f5f7f9;
 }
 
-form #loginFailed {
+form #loginFailedLbl {
   color:red;
   font-size: 18px;
   margin-top:18px;

@@ -2,8 +2,7 @@ $("#login-button").click(function(event){
   event.preventDefault();
   $('form').fadeOut(500);
   $('.wrapper').addClass('form-success');
-  $('form h1').text("Authenticating...");
-  $('form h1').show();
+  setTimeout(function(){$('#authenticationLbl').fadeIn()}, 700);
 
   var inputs = $('input');
   var postData = {
@@ -24,12 +23,12 @@ $("#login-button").click(function(event){
       if (response.err != null) {
         $('.wrapper').removeClass('form-success');
         $('form').fadeIn(500);
-        $('form h1').text("The username or password is incorrect.")
-        $('form h1').show();
+        $('#loginFailedLbl').show();
+        $('#authenticationLbl').hide();
       } else {
-        window.location.href = "http://mike-legrand.com/bad_batch_web_admin/adminPanel.html";
+        window.location.href = "http://mike-legrand.com/bad_batch_alert_web_admin/adminPanel.html" + '?token=' + response.token;
       }
-    }, 1000);
+    }, 1500);
   };
 
   function onError() {
