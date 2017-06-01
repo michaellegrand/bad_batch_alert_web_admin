@@ -33,15 +33,13 @@ body :-ms-input-placeholder {
   font-weight: 300;
 }
 .map svg {
-  height: auto;
-  width:63vw;
-  height:63vw;
-  margin-left:-6vw;
-  margin-top:0.03vw;
+  width:600px;
+  height:550px;
+  z-index: 2;
 }
 .map path {
   fill: transparent;
-  stroke: rgba(100,100,100,.6);
+  stroke: rgba(0,0,0, .5);;
   stroke-width: 1;
   -webkit-transition-duration: .3s;
           transition-duration: .3s;
@@ -49,25 +47,25 @@ body :-ms-input-placeholder {
           transition-timing-function: ease-in-put;
 }
 .map path:hover {
-  fill: rgba(255,255,255, .5);
-  stroke: #ce606f;
+  fill: rgba(255,200,55, .3);
+  stroke: rgba(204,57,0, .5);
   stroke-width: 1;
 }
 
 .map path.selected {
-  fill: rgba(255,255,200, .8);
-  stroke: #ce606f;
+  fill: rgba(255,200,55, .5);
+  stroke: rgba(204,57,0, 1);
   stroke-width: 2;
 }
 
 .mapImage {
   z-index: -1;
   position: absolute;
-  background-image: url("http://mike-legrand.com/bad_batch_alert_web_admin/images/mapBackgroundRounded.png");
+  background-image: url("http://mike-legrand.com/bad_batch_alert_web_admin/images/regions2.jpg");
   background-repeat: no-repeat;
   background-size:contain;
-  width:50vw;
-  height:50vw;
+  width:600px;
+  height:550px;
   opacity: .8;
 }
 
@@ -90,7 +88,7 @@ body :-ms-input-placeholder {
   animation-iteration-count: infinite;
   animation-name: pop;
   border-radius: 50%;
-  border: 1px solid #ce606f;
+  border: 1px solid rgba(204,57,0, 1);
   content: '';
   height: 3em;
   left: 0;
@@ -102,7 +100,7 @@ body :-ms-input-placeholder {
 }
 .map-marker a {
   position:absolute;
-  background-color: #ce606f;
+  background-color: rgba(204,57,0, 1);
   border-radius: 50%;
   height: 1.5em;
   width: 1.5em;
@@ -119,7 +117,7 @@ body :-ms-input-placeholder {
   font-size: .875em;
   z-index: 10;
   margin-top:2px;
-  margin-left:9px;
+  margin-left:5px;
   color: white;
   -webkit-transition-duration: .3s;
           transition-duration: .3s;
@@ -128,66 +126,66 @@ body :-ms-input-placeholder {
 }
 
 .map-marker-1 {
-  left: 12vw;
-  top: 17vw;
+  left: 155px;
+  top: 289px;
 }
 .map-marker-1:after {
   animation-delay: 5s;
 }
 
 .map-marker-2 {
-  left: 20vw;
-  top: 10vw;
+  left: 248px;
+  top: 211px;
 }
 .map-marker-2:after {
   animation-delay: 5s;
 }
 
 .map-marker-3 {
-  left: 28vw;
-  top: 17vw;
+  left: 358px;
+  top: 291px;
 }
 .map-marker-3:after {
   animation-delay: 3s;
 }
 .map-marker-4 {
-  left: 8vw;
-  top: 25vw;
+  left: 100px;
+  top: 384px;
 }
 .map-marker-4:after {
   animation-delay: 3s;
 }
 .map-marker-5 {
-  left: 19.5vw;
-  top: 22vw;
+  left: 250px;
+  top: 350px;
 }
 .map-marker-5:after {
   animation-delay: 5s;
 }
 .map-marker-6 {
-  left: 30vw;
-  top: 25vw;
+  left: 380px;
+  top: 385px;
 }
 .map-marker-6:after {
   animation-delay: 5s;
 }
 .map-marker-7 {
-  left: 40vw;
-  top: 29vw;
+  left: 510px;
+  top: 440px;
 }
 .map-marker-7:after {
   animation-delay: 5s;
 }
 .map-marker-8 {
-  left: 13vw;
-  top: 32vw;
+  left: 160px;
+  top: 480px;
 }
 .map-marker-8:after {
   animation-delay: 5s;
 }
 .map-marker-9 {
-  left: 22vw;
-  top: 38vw;
+  left: 270px;
+  top: 550px;
 }
 .map-marker-9:after {
   animation-delay: 5s;
