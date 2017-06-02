@@ -1,6 +1,6 @@
 /*form styles*/
 #msform {
-	width: 600px;
+	width: 660px;
 	margin: auto;
 	text-align: center;
 	position: relative;
@@ -20,7 +20,6 @@
 /*Hide all except first fieldset*/
 #msform fieldset:not(:first-of-type) {
 	display: none;
-	width:600px;
 }
 /*inputs*/
 #msform input {
@@ -76,6 +75,7 @@
 }
 /*progressbar*/
 #progressbar {
+	margin-left:-30px;
 	margin-bottom: 30px;
 	overflow: hidden;
 	/*CSS counters to number the steps*/
