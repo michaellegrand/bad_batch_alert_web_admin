@@ -36,6 +36,29 @@ $("#login-button").click(function(event){
     $('.wrapper').removeClass('form-success');
     $('form').fadeIn(500);
   }
-
-
 });
+
+function testDavon(){
+ 
+    var postData = {
+      regionNumbers:[1, 2]
+    };
+
+    $.ajax({ 
+      url:'https://badbatchalertstaging.herokuapp.com/webadmin/getusersinregions',
+      type: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify( postData ), 
+      success: onTestDavonResponse,
+      error: onDavonError
+    });
+  }
+
+  function onTestDavonResponse(response) {
+    console.log(response.userCount);
+  };
+
+
+  function onDavonError() {
+    console.log("an unexpected error has occurred");
+  }
