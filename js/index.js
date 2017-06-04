@@ -1,3 +1,5 @@
+var environment = 'live';//'staging';
+
 $("#login-button").click(function(event){
   event.preventDefault();
   $('form').fadeOut(500);
@@ -10,7 +12,7 @@ $("#login-button").click(function(event){
     password: inputs.eq(1).val()
   }
   $.ajax({ 
-    url: 'https://badbatchalertstaging.herokuapp.com/webadmin/receive',
+    url: 'https://badbatchalert' + environment + '.herokuapp.com/webadmin/receive',
     type: 'POST',
     contentType: 'application/json',
     data: JSON.stringify( postData ), 
@@ -37,28 +39,3 @@ $("#login-button").click(function(event){
     $('form').fadeIn(500);
   }
 });
-
-function testDavon(){
- 
-    var postData = {
-      regionNumbers:[1, 2]
-    };
-
-    $.ajax({ 
-      url:'https://badbatchalertstaging.herokuapp.com/webadmin/getusersinregions',
-      type: 'POST',
-      contentType: 'application/json',
-      data: JSON.stringify( postData ), 
-      success: onTestDavonResponse,
-      error: onDavonError
-    });
-  }
-
-  function onTestDavonResponse(response) {
-    console.log(response.userCount);
-  };
-
-
-  function onDavonError() {
-    console.log("an unexpected error has occurred");
-  }

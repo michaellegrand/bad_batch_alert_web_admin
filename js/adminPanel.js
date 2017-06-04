@@ -4,6 +4,10 @@ var _selecedRegions = [
   false, false, false, false, false, false, false, false, false
 ]
 
+var _usersInRegions = [];
+
+var environment = 'live';//'staging';
+
 $( document ).ready(function() {
   /*var params = getQueryParams(location.search);
   //console.log(JSON.stringify(params));
@@ -16,7 +20,25 @@ $( document ).ready(function() {
   $('path').mouseleave(onPathMouseleave);
   $('path').click(onPathClick);
 
+  $.ajax({ 
+      url:'https://badbatchalert' + environment + '.herokuapp.com/webadmin/getusersinregions',
+      type: 'POST',
+      contentType: 'application/json',
+      data: '', 
+      success: onGetUsersInRegionsResponse,
+      error: onGetUsersInRegionsError
+  });
 });
+
+function onGetUsersInRegionsResponse(response) {
+  console.log(response.userCounts);
+  _usersInRegions = response.userCounts;
+};
+
+
+function onGetUsersInRegionsError() {
+  console.log("an unexpected error has occurred getting users in regions");
+}
 
 function getQueryParams(qs) {
   qs = qs.split('+').join(' ');
@@ -60,10 +82,26 @@ function onPathClick()
   if (turnOff) {
     classes = classes.replace('selected', ''); 
     mapMarker.hide();
+    _selecedRegions[index] = false;
   } else {
     classes = classes + ' selected';
     mapMarker.show();
+    _selecedRegions[index] = true;
   }
+
+  var summaryLabel = $('#summaryLabel');
+  var totalUsers = 0;
+  var regions = [];
+  for (var i = 0; i < _usersInRegions.length; i++) {
+    if (!_selecedRegions[i]) continue;
+    
+    totalUsers += _usersInRegions[i];
+    regions.push(i+1); 
+
+  }
+
+  var regionsStr = regions.join(', ');
+  summaryLabel.text("This alert will be sent to the " + totalUsers + " users registered in region(s) : " + regionsStr);
 
   $(this).attr("class", classes);
 }
