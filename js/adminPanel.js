@@ -28,6 +28,18 @@ $( document ).ready(function() {
       success: onGetUsersInRegionsResponse,
       error: onGetUsersInRegionsError
   });
+
+  $('#flyaway').click(function() {
+    $('#flyaway').toggleClass('clicked');
+    $('#flyaway p').text("Sending...");
+    setTimeout(function(){
+      $('#flyaway').toggleClass('clicked');
+      $('#flyaway p').text("Sent");
+      window.location.href = "http://mike-legrand.com/bad_batch_alert_web_admin/success.html";
+    }, 3000);
+  });
+
+
 });
 
 function onGetUsersInRegionsResponse(response) {
@@ -105,3 +117,5 @@ function onPathClick()
 
   $(this).attr("class", classes);
 }
+
+

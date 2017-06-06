@@ -5,6 +5,10 @@ var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 
 $(".next").click(function(){
+
+	$('textarea').eq(1).val($('textarea').eq(0).val());//set last text area to first text area contents.
+
+
 	if(animating) return false;
 	animating = true;
 	
@@ -77,6 +81,3 @@ $(".previous").click(function(){
 	});
 });
 
-$(".submit").click(function(){
-	return false;
-})
