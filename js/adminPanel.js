@@ -5,8 +5,10 @@ var _selecedRegions = [
 ]
 
 var _usersInRegions = [];
+var _message;
 
 var environment = 'live';//'staging';
+
 
 $( document ).ready(function() {
   /*var params = getQueryParams(location.search);
@@ -29,18 +31,47 @@ $( document ).ready(function() {
       error: onGetUsersInRegionsError
   });
 
-  $('#flyaway').click(function() {
-    $('#flyaway').toggleClass('clicked');
-    $('#flyaway p').text("Sending...");
+  $('#sendButton').click(function() {
+    $('#sendButton').toggleClass('clicked');
+    $('#sendButton').val("SENDING...");
     setTimeout(function(){
-      $('#flyaway').toggleClass('clicked');
-      $('#flyaway p').text("Sent");
+      $('#sendButton').toggleClass('clicked');
+      $('#sendButton').val("SENT");
       window.location.href = "http://mike-legrand.com/bad_batch_alert_web_admin/success.html";
-    }, 3000);
+    }, 2000);
+    sendMessage(_message, _selectedRegions);
   });
 
+  $('#testButton').click(function() {
+    $('#testButton').toggleClass('clicked');
+    $('#testButton').val("TESTING...");
+    setTimeout(function() {
+      $('#testButton').toggleClass('clicked');
+      $('#testButton').val("TEST AGAIN");
+    }, 2000);
+    sendMessage(_message, _selectedRegions);
+  });
 
 });
+
+function sendMessage(message, regions) {
+  var postData = {
+    message:message,
+    regions:regions
+  }
+  /*($.ajax({ 
+      url:'https://badbatchalert' + environment + '.herokuapp.com/webadmin/sendTestMessage',
+      type: 'POST',
+      contentType: 'application/json',
+      data: postData, 
+      success: function(){},
+      error: function(){}
+  });*/
+}
+
+
+
+
 
 function onGetUsersInRegionsResponse(response) {
   console.log(response.userCounts);

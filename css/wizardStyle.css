@@ -45,7 +45,7 @@
 }
 
 #msform textarea {
-	padding: 15px;
+	padding: 30px;
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	margin-bottom: 10px;
@@ -53,8 +53,9 @@
 	height:200px;
 	box-sizing: border-box;
 	color: #2C3E50;
-	font-size: 23px;
+	font-size: 15px;
 	line-height: 42px;
+	text-align: center;
 }
 
 /*buttons*/
@@ -69,6 +70,23 @@
 	padding: 10px 5px;
 	margin: 10px 5px;
 }
+
+#msform #sendButton {
+	background: rgba(204,57,0, 1);
+}
+
+#msform #sendButton:hover, #msform #sendButton:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px rgba(204,57,0, 1);
+}
+
+#msform #testButton {
+	background: #ffc837;
+}
+
+#msform #testButton:hover, #msform #testButton:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #ffc837;
+}
+
 
 #msform .action-button:hover, #msform .action-button:focus {
 	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
