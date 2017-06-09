@@ -12,7 +12,7 @@ $("#login-button").click(function(event){
     password: inputs.eq(1).val()
   }
   $.ajax({ 
-    url: 'https://badbatchalert' + environment + '.herokuapp.com/webadmin/receive',
+    url: 'https://badbatchalert' + environment + '.herokuapp.com/webadmin/login',
     type: 'POST',
     contentType: 'application/json',
     data: JSON.stringify( postData ), 

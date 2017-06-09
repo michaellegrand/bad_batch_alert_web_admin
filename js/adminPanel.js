@@ -59,18 +59,25 @@ function sendMessage(message, regions) {
     message:message,
     regions:regions
   }
-  /*($.ajax({ 
-      url:'https://badbatchalert' + environment + '.herokuapp.com/webadmin/sendTestMessage',
+
+  $.ajax({ 
+      url:'https://badbatchalert' + environment + '.herokuapp.com/webadmin/sendtestmessage',
       type: 'POST',
       contentType: 'application/json',
       data: postData, 
-      success: function(){},
-      error: function(){}
-  });*/
+      success: function() {},
+      error: onSendMessageError
+  });
 }
 
 
+function onSendMessageSuccess() {
+  console.log("Message Successfully Sent.");
+}
 
+function onSendMessageError() {
+  console.log("an unexpected error has occurred getting users in regions");
+}
 
 
 function onGetUsersInRegionsResponse(response) {
