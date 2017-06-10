@@ -14,8 +14,8 @@ $(".next").click(function(){
 			}
 		}
 		if (!isRegionSelected) {
-		alert("Please select 1 or more regions.")
-		return
+		  alert("Please select 1 or more regions.");
+		  return;
 		}
 	}
 	_message = $('textarea').eq(0).val();
