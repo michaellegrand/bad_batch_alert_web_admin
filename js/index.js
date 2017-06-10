@@ -1,4 +1,4 @@
-var environment = 'live';//'staging';
+var environment = 'staging';//'staging';
 
 $("#login-button").click(function(event){
   event.preventDefault();
