@@ -5,6 +5,19 @@ var left, opacity, scale; //fieldset properties which we will animate
 var animating; //flag to prevent quick multi-click glitches
 
 $(".next").click(function(){
+	if (this.id == "regionSelectNext"){
+		var isRegionSelected = false;
+		for (var i = 0; i < _selectedRegions.length; i++){
+			if (_selectedRegions[i]){
+				isRegionSelected = true;
+				break;
+			}
+		}
+		if (!isRegionSelected) {
+		alert("Please select 1 or more regions.")
+		return
+		}
+	}
 	_message = $('textarea').eq(0).val();
 	$('.message.to').text(_message);//set last text area to first text area contents.
 
