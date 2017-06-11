@@ -16,6 +16,7 @@ $( document ).ready(function() {
   _token = params.token;
   if (!_token) {
     window.location.href = "http://mike-legrand.com/bad_batch_alert_web_admin/index.html"
+    return;
   }
 
   $('path').mouseover(onPathMouseover);
@@ -32,14 +33,16 @@ $( document ).ready(function() {
   });
 
   $('#sendButton').click(function() {
-    $('#sendButton').toggleClass('clicked');
-    $('#sendButton').val("SENDING...");
-    setTimeout(function(){
+    showPopup("This will send a real alert to multiple people. Are you sure you wish to continue?", "SEND", function() {
       $('#sendButton').toggleClass('clicked');
-      $('#sendButton').val("SENT");
-      window.location.href = "http://mike-legrand.com/bad_batch_alert_web_admin/success.html";
-    }, 2000);
-    sendMessage(_message, _selectedRegions, _token);
+      $('#sendButton').val("SENDING...");
+      setTimeout(function(){
+        $('#sendButton').toggleClass('clicked');
+        $('#sendButton').val("SENT");
+      }, 2000);
+      sendMessage(_message, _selectedRegions, _token, false);
+    },
+    "CANCEL");
   });
 
   $('#testButton').click(function() {
@@ -49,12 +52,12 @@ $( document ).ready(function() {
       $('#testButton').toggleClass('clicked');
       $('#testButton').val("TEST AGAIN");
     }, 2000);
-    sendMessage(_message, _selectedRegions, _token);
+    sendMessage(_message, _selectedRegions, _token, true);
   });
 
 });
 
-function sendMessage(message, regions, authtoken) {
+function sendMessage(message, regions, authtoken, isTest) {
 
   console.log(message);
   var postData = {
@@ -62,27 +65,42 @@ function sendMessage(message, regions, authtoken) {
     regions:regions,
     authtoken:authtoken
   }
+  var successCallback = isTest ? onTestMessageSuccess : onSendMessageSuccess;
   $.ajax({ 
       url:'https://badbatchalert' + environment + '.herokuapp.com/webadmin/sendtestmessage',
       type: 'POST',
       contentType: 'application/json',
       data: JSON.stringify(postData), 
-      success: onSendMessageSuccess,
+      success: successCallback,
       error: onSendMessageError
   });
 }
 
 
-function onSendMessageSuccess(response) {
+function onTestMessageSuccess(response) {
   if (response.err === "notLoggedIn") {
     console.log("Login expired");
-    window.location.href = "http://mike-legrand.com/bad_batch_alert_web_admin/index.html";
+    showPopup("Your login has expired. You must re-log in to continue.", "LOGIN", function() {
+      window.location.href = "http://mike-legrand.com/bad_batch_alert_web_admin/index.html";
+    });
   } else {
     console.log("Message Successfully Sent.");
   }
 }
 
-function onSendMessageError() {
+function onSendMessageSuccess(response) {
+  if (response.err === "notLoggedIn") {
+    console.log("Login expired");
+    showPopup("Your login has expired. You must re-log in to continue.", "LOGIN", function() {
+      window.location.href = "http://mike-legrand.com/bad_batch_alert_web_admin/index.html";
+    });
+  } else {
+    console.log("Message Successfully Sent.");
+    window.location.href = "http://mike-legrand.com/bad_batch_alert_web_admin/success.html";
+  }
+}
+
+function onMessageError() {
   console.log("an unexpected error has occurred getting users in regions");
 }
 
@@ -162,5 +180,39 @@ function onPathClick()
 
   $(this).attr("class", classes);
 }
+
+function showPopup(text, button1, callback1, button2, callback2) {
+  if (button2) {
+    $('.cd-popup #cancelButton').show();
+  } else {
+    $('.cd-popup #cancelButton').hide();
+  }
+
+  $('.cd-popup input')[0].value = button1;
+
+  $('.cd-popup h2').text(text);
+  $('.cd-popup').addClass('is-visible');
+  $('.cd-popup').on('click', function(event) {
+    if( $(event.target).is('.cd-popup-close') || $(event.target).is('.cd-popup')  || event.target.id == 'cancelButton') {
+      event.preventDefault();
+      $(this).removeClass('is-visible');
+      if (callback2) {callback2();}
+    }
+    if(event.target.id == 'okButton') {
+      event.preventDefault();
+      $(this).removeClass('is-visible');
+      if (callback1) {callback1();}
+    }
+  });
+
+  $(document).keyup(function(event){
+    if(event.which=='27'){
+      $('.cd-popup').removeClass('is-visible');
+      if (callback2) {callback2();}
+    }
+  });
+}
+
+
 
 
