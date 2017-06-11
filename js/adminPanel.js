@@ -72,7 +72,7 @@ function sendMessage(message, regions, authtoken, isTest) {
       contentType: 'application/json',
       data: JSON.stringify(postData), 
       success: successCallback,
-      error: onSendMessageError
+      error: onMessageError
   });
 }
 
@@ -85,6 +85,7 @@ function onTestMessageSuccess(response) {
     });
   } else {
     console.log("Message Successfully Sent.");
+    showPopup("A sample message was sent to your phone number", "OK");
   }
 }
 
