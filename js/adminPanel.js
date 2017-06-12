@@ -2,7 +2,7 @@ var _token;//auth token passed from server through url.
 
 var _selectedRegions = [
   false, false, false, false, false, false, false, false, false
-]
+];
 
 var _usersInRegions = [];
 var _message;
@@ -60,7 +60,7 @@ function sendMessage(message, regions, authtoken, isTest) {
     message:message,
     regions:regions,
     authtoken:authtoken
-  }
+  };
   var successCallback = isTest ? onTestMessageSuccess : onSendMessageSuccess;
   $.ajax({ 
       url:'https://badbatchalert' + environment + '.herokuapp.com/webadmin/sendtestmessage',
