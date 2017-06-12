@@ -14,10 +14,6 @@ $( document ).ready(function() {
   var params = getQueryParams(location.search);
   console.log(JSON.stringify(params));
   _token = params.token;
-  if (!_token) {
-    window.location.href = "http://mike-legrand.com/bad_batch_alert_web_admin/index.html"
-    return;
-  }
 
   $('path').mouseover(onPathMouseover);
   $('path').mouseleave(onPathMouseleave);
