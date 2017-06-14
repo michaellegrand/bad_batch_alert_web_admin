@@ -7,7 +7,8 @@ var _selectedRegions = [
 var _usersInRegions = [];
 var _message;
 
-var environment = 'staging';//'staging';
+var environment = 'live';//'staging';
+var site = 'http://mike-legrand.com/bad_batch_alert_web_admin/';
 
 
 $( document ).ready(function() {
@@ -77,7 +78,7 @@ function onTestMessageSuccess(response) {
   if (response.err === "notLoggedIn") {
     console.log("Login expired");
     showPopup("Your login has expired. You must re-log in to continue.", "LOGIN", function() {
-      window.location.href = "http://mike-legrand.com/bad_batch_alert_web_admin/index.html";
+      window.location.href = site + "index.html";
     });
   } else {
     console.log("Message Successfully Sent.");
@@ -89,11 +90,11 @@ function onSendMessageSuccess(response) {
   if (response.err === "notLoggedIn") {
     console.log("Login expired");
     showPopup("Your login has expired. You must re-log in to continue.", "LOGIN", function() {
-      window.location.href = "http://mike-legrand.com/bad_batch_alert_web_admin/index.html";
+      window.location.href = site + "index.html";
     });
   } else {
     console.log("Message Successfully Sent.");
-    window.location.href = "http://mike-legrand.com/bad_batch_alert_web_admin/success.html";
+    window.location.href = site + "success.html";
   }
 }
 
@@ -105,7 +106,7 @@ function onMessageError() {
 function onGetUsersInRegionsResponse(response) {
   console.log(response.userCounts);
   _usersInRegions = response.userCounts;
-};
+}
 
 
 function onGetUsersInRegionsError() {
@@ -139,7 +140,7 @@ function onPathMouseleave()
 function onPathClick()
 {
 
-  var index = undefined;
+  var index;
   var paths = $('path');
   for (var i = 0; i < paths.length; i++) {
     if (paths[i] == this) {
