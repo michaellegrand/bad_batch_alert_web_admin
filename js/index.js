@@ -37,7 +37,7 @@ $("#login-button").click(function(event){
   }
 
   function onError() {
-    cnsole.log("an unexpected error has ocurred");
+    console.log("an unexpected error has ocurred");
     $('.wrapper').removeClass('form-success');
     $('form').fadeIn(500);
   }
