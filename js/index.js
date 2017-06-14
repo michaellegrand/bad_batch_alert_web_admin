@@ -1,4 +1,4 @@
-var environment = 'staging';
+var environment = 'live';
 var site = 'http://mike-legrand.com/bad_batch_alert_web_admin/';
 
 $("#login-button").click(function(event){
