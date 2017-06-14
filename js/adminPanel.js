@@ -7,7 +7,7 @@ var _selectedRegions = [
 var _usersInRegions = [];
 var _message;
 
-var environment = 'like';
+var environment = 'live';
 var site = 'http://mike-legrand.com/bad_batch_alert_web_admin/';
 
 
