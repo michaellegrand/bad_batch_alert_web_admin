@@ -127,7 +127,7 @@ body :-ms-input-placeholder {
 
 .map-marker-1 {
   left: 155px;
-  top: 289px;
+  top: 340px;
 }
 .map-marker-1:after {
   animation-delay: 5s;
@@ -135,7 +135,7 @@ body :-ms-input-placeholder {
 
 .map-marker-2 {
   left: 248px;
-  top: 211px;
+  top: 266px;
 }
 .map-marker-2:after {
   animation-delay: 5s;
@@ -143,49 +143,49 @@ body :-ms-input-placeholder {
 
 .map-marker-3 {
   left: 358px;
-  top: 291px;
+  top: 346px;
 }
 .map-marker-3:after {
   animation-delay: 3s;
 }
 .map-marker-4 {
   left: 100px;
-  top: 384px;
+  top: 439px;
 }
 .map-marker-4:after {
   animation-delay: 3s;
 }
 .map-marker-5 {
   left: 250px;
-  top: 350px;
+  top: 405px;
 }
 .map-marker-5:after {
   animation-delay: 5s;
 }
 .map-marker-6 {
   left: 380px;
-  top: 385px;
+  top: 440px;
 }
 .map-marker-6:after {
   animation-delay: 5s;
 }
 .map-marker-7 {
   left: 510px;
-  top: 440px;
+  top: 495px;
 }
 .map-marker-7:after {
   animation-delay: 5s;
 }
 .map-marker-8 {
   left: 160px;
-  top: 480px;
+  top: 535px;
 }
 .map-marker-8:after {
   animation-delay: 5s;
 }
 .map-marker-9 {
   left: 270px;
-  top: 550px;
+  top: 605px;
 }
 .map-marker-9:after {
   animation-delay: 5s;
