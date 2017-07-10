@@ -8,7 +8,7 @@ var _usersInRegions = [];
 var _message;
 
 var environment = 'staging';
-var site = 'http://badbatchalert.com/admin/';
+var site = 'http://badbatchalert.com/admin';
 
 
 $( document ).ready(function() {
@@ -76,15 +76,12 @@ function sendMessage(message, regions, authtoken, isTest) {
 
 
 function onTestMessageSuccess(response) {
-
-
-
   if (response.err === "notLoggedIn") {
     console.log("Login expired");
     showPopup("Your login has expired. You must re-log in to continue.", "LOGIN", function() {
       window.location.href = site + "index.html";
     });
-  }  else {
+  } else {
     console.log("Message Successfully Sent.");
     showPopup("A sample message was sent to your phone number", "OK");
   }
@@ -96,9 +93,6 @@ function onSendMessageSuccess(response) {
     showPopup("Your login has expired. You must re-log in to continue.", "LOGIN", function() {
       window.location.href = site + "index.html";
     });
-  } else if (response.err === "accessDenied") {
-    console.log("Access Denied");
-    showPopup("Your account has not been given access to send out real alerts. Please contact the account administrator, if you need to be granted access.", "OK");
   } else {
     console.log("Message Successfully Sent.");
     window.location.href = site + "success.html";
