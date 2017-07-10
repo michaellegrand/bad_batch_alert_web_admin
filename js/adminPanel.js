@@ -7,7 +7,7 @@ var _selectedRegions = [
 var _usersInRegions = [];
 var _message;
 
-var environment = 'staging';
+var environment = 'live';
 var site = 'http://badbatchalert.com/admin/';
 
 

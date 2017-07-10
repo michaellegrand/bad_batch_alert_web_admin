@@ -1,4 +1,4 @@
-var environment = 'staging';
+var environment = 'live';
 var site = 'http://badbatchalert.com/admin/';
 
 $("#login-button").click(function(event){
