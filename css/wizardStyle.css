@@ -87,7 +87,6 @@
 	box-shadow: 0 0 0 2px white, 0 0 0 3px #ffc837;
 }
 
-
 #msform .action-button:hover, #msform .action-button:focus {
 	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 }
@@ -155,6 +154,18 @@
 	color: white;
 }
 
+#addressInputBox::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #e0e0d8;
+}
+#addressInputBox::-moz-placeholder { /* Firefox 19+ */
+  color: #e0e0d8;
+}
+#addressInputBox::-ms-input-placeholder { /* IE 10+ */
+  color: #e0e0d8;
+}
+#addressInputBox::-moz-placeholder { /* Firefox 18- */
+  color: #e0e0d8;
+}
 
 
 

@@ -104,6 +104,17 @@ form input {
           transition-duration: 0.25s;
   font-weight: 300;
 }
+.map-marker-1 {
+  left: 155px;
+  top: 340px;
+}
+.map-marker-1:after {
+  animation-delay: 5s;
+}
+.map-marker-2 {
+  left: 248px;
+  top: 266px;
+}
 form input:hover {
   background-color: rgba(255, 255, 255, 0.4);
 }
@@ -136,6 +147,55 @@ form #loginFailedLbl {
   color:red;
   font-size: 18px;
   margin-top:18px;
+}
+.map-marker-3 {
+  left: 358px;
+  top: 346px;
+}
+.map-marker-3:after {
+  animation-delay: 3s;
+}
+.map-marker-4 {
+  left: 100px;
+  top: 439px;
+}
+.map-marker-4:after {
+  animation-delay: 3s;
+}
+.map-marker-5 {
+  left: 250px;
+  top: 405px;
+}
+.map-marker-5:after {
+  animation-delay: 5s;
+}
+.map-marker-6 {
+  left: 380px;
+  top: 440px;
+}
+.map-marker-6:after {
+  animation-delay: 5s;
+}
+.map-marker-7 {
+  left: 510px;
+  top: 495px;
+}
+.map-marker-7:after {
+  animation-delay: 5s;
+}
+.map-marker-8 {
+  left: 160px;
+  top: 535px;
+}
+.map-marker-8:after {
+  animation-delay: 5s;
+}
+.map-marker-9 {
+  left: 270px;
+  top: 605px;
+}
+.map-marker-9:after {
+  animation-delay: 5s;
 }
 
 .bg-bubbles {

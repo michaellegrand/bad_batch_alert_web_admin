@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html >
-<head>
+<hea
   <meta charset="UTF-8">
   <title>Bad Batch Alert Admin Panel</title>
   <link rel="stylesheet" href="css/wizardStyle.css">
   <link rel="stylesheet" href="css/adminPanel.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/smsStyle.css">
+  <link rel="stylesheet" href="css/popupStyle.css">
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js'></script>
   <script src="js/adminPanel.js"></script>
@@ -25,6 +26,7 @@
   <fieldset>
     <h2 class="fs-title">Select Region</h2>
     <h3 class="fs-subtitle">Click the region(s) you want to alert.</h3>
+    <input id="addressInputBox" type="text" placeholder="Adress Here">
     <div class="mapImage" ></div>
     <div class="map" >
     <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -113,7 +115,7 @@
     <h2 class="fs-title">Edit Message</h2>
     <h3 class="fs-subtitle">Customize the message.</h3>
     <textarea name="message" placeholder="Message">⚠️  Multiple overdoses detected nearby. ⚠️ 
-    Please be careful.
+    Please be careful. Don’t use alone, use slowly, make sure to have naloxone near by.
     http://dontdie.org
     </textarea>
     <input type="button" name="previous" class="previous action-button" value="PREVIOUS" />
@@ -146,6 +148,14 @@
     <input id="testButton" type="button" name="test" class="action-button" value="TEST" ></input>
     <input id="sendButton" type="button" name="send" class="action-button" value="SEND" ></input>
   </fieldset>
+  <div class="cd-popup" role="alert">
+  <div class="cd-popup-container">
+    <h2 class="fs-title">Are you sure you want to delete this element?</h2>
+    <input id="okButton" type="button"  class="action-button" value="OK" ></input>
+    <input id="cancelButton" type="button"  class="action-button" value="CANCEL" ></input>
+    <a href="#0" class="cd-popup-close img-replace">Close</a>
+  </div> <!-- cd-popup-container -->
+</div> <!-- cd-popup -->
 </form>
    <script src="js/wizard.js"></script>
 </body>
