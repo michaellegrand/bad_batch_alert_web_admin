@@ -1,5 +1,5 @@
 var environment = 'live';
-var site = 'http://mike-legrand.com/bad_batch_alert_web_admin/';
+var site = 'http://badbatchalert.com/admin/';
 
 $("#login-button").click(function(event){
   event.preventDefault();
